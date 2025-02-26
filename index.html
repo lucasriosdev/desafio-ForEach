@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio_forEach</title>
+</head>
+<body>
+    <input placeholder="Digite o nome do contato" id="nomeBusca" autocomplete="off">
+    <button onclick="BuscarContato()">Procurar Contato</button>
+    <p style="white-space: pre-wrap"></p>
+
+    <script>
+        let p = document.querySelector("p");
+        let input = document.querySelector("#nomeBusca");
+
+        const contacts = [
+            { name: "Maria Bernadete", age: 40, number: "(74)9888-9999" },
+            { name: "Bolsonaro", age: 41, number: "(74)9888-0000" },
+            { name: "Dilma Roulseff", age: 42, number: "(74)9888-2222" },
+            { name: "Cirilo", age: 43, number: "(74)9888-4444" }
+        ];
+
+        function BuscarContato() {
+            let encontrado = contacts.find(contact => input.value.toLowerCase() === contact.name.toLowerCase());
+
+            if (encontrado) {
+                p.innerHTML = `Contato Encontrado, Nome: ${encontrado.name} Tel: ${encontrado.number}`;
+            } else {
+                p.innerHTML = "Contato não encontrado, tente novamente!";
+            }
+        }
+    </script>
+</body>
+</html>
